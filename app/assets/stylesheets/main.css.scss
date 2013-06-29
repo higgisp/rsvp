@@ -1,3 +1,46 @@
 body {
   background-image:url(bg.jpg);
 }
+
+.row {
+  background-color:white;
+  padding:50px 0;
+}
+
+h1 { 
+  color: #0177bf;
+  span {
+    color: #ffcf06;
+  }
+  &.home {
+    text-align:center;
+  }
+}
+
+img.banner {
+  margin:20px 0;
+}
+
+p {
+  font-size:1.5em;
+}
+
+a {
+  background-color:transparent;
+}
+
+a.button {
+  background-color: #0177bf;
+  border:1px solid #01578c;
+  color:white;
+  &:visited {
+    color:white;
+  }
+  &:hover {
+    background-color:#01578c;
+  }
+  &.home {
+    display:block;
+    margin:0 20%;
+  }
+}

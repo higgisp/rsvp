@@ -2,6 +2,7 @@ Rsvp::Application.routes.draw do
   get "home/index"
   
   root :to => "home#index"
+  match "/admin" => redirect("/guests/")
 
   resources :guests
 
