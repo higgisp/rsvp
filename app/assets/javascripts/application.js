@@ -20,12 +20,11 @@ $(function(){ $(document).foundation(); });
 var sum = 0;
 // iterate through each td based on class and add the values
 $(".party").each(function() {
-
-    var value = $(this).text();
-    // add only if the value is number
-    if(!isNaN(value) && value.length != 0) {
-        sum += parseFloat(value);
-    }
+  var value = $(this).text();
+  // add only if the value is number
+  if(!isNaN(value) && value.length != 0) {
+      sum += parseFloat(value);
+  }
 });
 $('#result').text(sum);    
 

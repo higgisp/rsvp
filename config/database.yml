@@ -1,21 +1,17 @@
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: rsvp_development
   pool: 5
-  timeout: 5000
 
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
+    adapter: postgresql
+    encoding: unicode
+    database: rsvp_test
+    pool: 5
 
 production:
-  adapter: mysql
-  encoding: utf8
-  reconnect: false
-  database: rsvp_fran_and_sam
-  pool: 5
-  username: higgisp
-  password: fransam2013
-  host: mysql.rsvp.franandsam.com
+    adapter: postgresql
+    encoding: unicode
+    database: rsvp_production
+    pool: 5
