@@ -12,4 +12,16 @@
  *= require foundation_and_overrides
  *= require_tree .
  */
+form.custom .custom.dropdown a.current:hover {
+  background-color:transparent !important;
+}
+form.custom .custom.dropdown a.selector:hover {
+  background-color:transparent !important;
+}
 
+
+div.field {margin-bottom:30px !important;}
+
+textarea {
+  height:200px !important;
+}

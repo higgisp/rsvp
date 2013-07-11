@@ -19,6 +19,8 @@ class GuestsController < ApplicationController
   def show
     @guest = Guest.find(params[:id])
 
+    @attending = @guest.attending
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @guest }

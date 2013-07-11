@@ -1,3 +1,7 @@
 <h1>RSVP</h1>
 <p>Thanks for the RSVP!</p>
-<p>You can checkout our site <a href="http://franandsam.com">here.</a></p>
+<% if @attending == true %>
+  <p>You can checkout our site <a href="http://franandsam.com">here.</a></p>
+<% else %>
+  <p>Sorry you can't come. You will be missed. You can still checkout our site <a href="http://franandsam.com">here.</a</p>
+<% end %>

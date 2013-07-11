@@ -1,33 +1,55 @@
 <%= form_for(@guest, :html => { :class => 'custom' }) do |f| %>
-  <% if @guest.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
-
-      <ul>
-      <% @guest.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <div id="steps">
+    <div class="steps large-8 large-offset-2 small-12 columns">
+      <p class="lead">Please click the switch to show your response</p>
+      <div class="switch large-3 columns" onclick="toggle_response('party_section');">
+        <%= f.radio_button :attending, false  %>
+        <%= f.label :attending, "Not Attending", :value => "No" %>
+        <%= f.radio_button :attending, true, :checked => true %>
+        <%= f.label :attending, "Attending", :value => "Yes" %>
+    
+        <span></span>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :attending %><br />
-    <%= f.check_box :attending %>
-  </div>
-  <div class="field">
-    <%= f.label :party %><br />
-    <%= f.select :party, options_for_select([["Select One", ""], *1..10]) %>
-  </div>
-  <div class="field">
-    <%= f.label :comment %><br />
-    <%= f.text_area :comment %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Send", :class => "button"%>
+    <div class="steps large-8 large-offset-2 small-12 columns">
+      <% if @guest.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
+
+          <ul>
+          <% @guest.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="steps large-8 large-offset-2 small-12 columns">
+      <div class="field">
+        <p class="lead">Please tell us who you are!</p>
+        <%= f.text_field :name, :placeholder => "Your Name"%>
+      </div>
+    </div>
+
+    <div id="party_section" class="steps large-8 large-offset-2 small-12 columns">
+      <p class="lead">Will you be bringing a significant other or family? If so how many including yourself should we expect?</p>
+      <div class="field">
+        <%= f.select :party, options_for_select([["Select One"], *0..10]) %>
+      </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="steps large-8 large-offset-2 small-12 columns">
+      <p class="lead">And if you'd like you can leave a comment for the Bride or Groom</p>
+      <div class="field">
+        <%= f.text_area :comment, :placeholder => "We are excited to hear from you!" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Send", :class => "button"%>
+      </div>
+    </div>
   </div>
 <% end %>
