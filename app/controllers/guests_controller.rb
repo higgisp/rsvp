@@ -1,4 +1,5 @@
 class GuestsController < ApplicationController
+  http_basic_authenticate_with :name => "admin", :password => "isitsecretisitsafe", :except => [:new, :show, :create] 
   # GET /guests
   # GET /guests.json
   def index
